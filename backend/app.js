@@ -42,6 +42,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
+// Root route for health check
+app.get("/", (req, res) => {
+  res.send("Kitchen cuisinia is running...");
+});
+
+// Handle favicon requests
+app.get("/favicon.ico", (req, res) => res.status(204));
+
 //using Routes
 app.use("/food", foodRouter);
 app.use("/user", userRouter);
