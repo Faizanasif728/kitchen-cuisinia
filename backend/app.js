@@ -14,8 +14,10 @@ const orderRouter = require("./Routes/orderRouter");
 var app = express();
 // Allow both local and production frontend URLs for CORS
 const allowedOrigins = [
-  process.env.FRONTEND_URL,
-  process.env.FRONTEND_URL_PRODUCTION,
+  process.env.FRONTEND_URL_SIMPLE,
+  process.env.FRONTEND_URL_ADMIN,
+  process.env.FRONTEND_URL_SIMPLE_PRODUCTION,
+  process.env.FRONTEND_URL_ADMIN_PRODUCTION,
 ];
 
 app.use(
