@@ -53,7 +53,7 @@
 - 🏠 Landing Page
 - 🧾 Order Placement & Success
 - 📦 Orders Page
-- 💬 Contact Us (Footer)
+- 💬 Contact Us
 - 🌐 Deployment Ready
 
 ---
@@ -181,4 +181,12 @@ npm run build
 ## 📝 Additional Notes
 
 - Make sure MongoDB is running and accessible via the URI you provide.
-- The
+- The backend uses CORS and environment variables for secure API access.
+- The frontend and admin panels are configured to use environment variables for API URLs, making deployment on Render or similar platforms seamless.
+- For deployment, set the appropriate environment variables in your hosting dashboard (Render, Vercel, etc).
+
+---
+
+<br>
+
+[Back to top](#top)
