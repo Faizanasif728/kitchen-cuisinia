@@ -5,8 +5,8 @@ const StoreContext = createContext(null);
 
 // Add a global axios response interceptor for 401 Unauthorized
 axios.interceptors.response.use(
-  response => response,
-  error => {
+  (response) => response,
+  (error) => {
     if (error.response && error.response.status === 401) {
       localStorage.removeItem("token");
       // Optionally, you can also clear other user data here
@@ -18,7 +18,10 @@ axios.interceptors.response.use(
 
 const StoreContextProvidor = (props) => {
   const [cartItems, setCartItems] = useState({});
-  const url = import.meta.env.VITE_API_URL || "http://localhost:3000";
+  const url =
+    import.meta.env.MODE === "production"
+      ? import.meta.env.VITE_API_URL_PRODUCTION
+      : import.meta.env.VITE_API_URL || "http://localhost:3000";
 
   const [token, setToken] = useState("");
 
@@ -65,7 +68,7 @@ const StoreContextProvidor = (props) => {
       try {
         //We want that this function runs when web-page is load and data is fetch from database
         await fetchFoodList();
-        
+
         // Check if there's a stored token and load user data
         const storedToken = localStorage.getItem("token");
         if (storedToken) {

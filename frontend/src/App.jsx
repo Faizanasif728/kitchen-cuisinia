@@ -13,13 +13,6 @@ import CategoryPage from "./pages/CategoryPage";
 import Orders from "./pages/Orders";
 
 const App = () => {
-  // Prefer production URL if available and in production, otherwise fallback to local
-  const apiUrl =
-    import.meta.env.VITE_API_URL_PRODUCTION &&
-    import.meta.env.MODE === "production"
-      ? import.meta.env.VITE_API_URL_PRODUCTION
-      : import.meta.env.VITE_API_URL || "http://localhost:3000";
-
   const { token, loading } = useContext(StoreContext);
   const [showLogin, setShowLogin] = useState(false); // Start with false, will be set based on token
   const location = useLocation();
